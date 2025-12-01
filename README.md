@@ -10,10 +10,8 @@ Built with **Three.js**, **React**, **Face API**, **OpenAI**, **Railway**, and *
 ## 🚀 **Live Demo**
 
 Frontend (Netlify):
-🔗 **[https://darling-concha-57de38.netlify.app/app.html](https://darling-concha-57de38.netlify.app/app.html)**
+🔗 **[https://speakwithmarina.netlify.app/)**
 
-Backend (Railway API):
-🔗 **[https://azure-marina-production-5c74.up.railway.app](https://azure-marina-production-5c74.up.railway.app)**
 
 ---
 
