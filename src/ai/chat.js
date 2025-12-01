@@ -7,7 +7,7 @@ const client = new OpenAI({
 
 export async function marinaBrain(userText) {
   const res = await fetch(
-    "azure-marina-production-5c74.up.railway.app/api/chat",
+    "https://azure-marina-production-5c74.up.railway.app/api/chat",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
