@@ -2,11 +2,14 @@ export async function speak(text) {
   try {
     console.log("🔊 Speaking:", text);
 
-    const res = await fetch("http://localhost:3000/api/voice", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text }),
-    });
+    const res = await fetch(
+      "azure-marina-production-5c74.up.railway.app/api/voice",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text }),
+      }
+    );
 
     const audioArrayBuffer = await res.arrayBuffer();
 
