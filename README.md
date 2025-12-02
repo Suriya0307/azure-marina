@@ -1,269 +1,312 @@
-# 🌊 **Marina — AI Ocean Companion**
 
-**Emotion-Aware • Voice-Interactive • 3D Ocean Environment**
+# **MARINA — A Dreamlike Ocean That Feels Your Emotions and Speaks Back**
 
-Marina is a next-generation AI companion that blends **emotion detection**, **3D visuals**, and **voice interaction** to create an immersive and calming digital experience.
-Built with **Three.js**, **React**, **Face API**, **OpenAI**, **Railway**, and **Netlify**, Marina reacts to your facial expressions in real-time and responds with soothing voice feedback.
+**Emotion Detection • Voice Interaction • Immersive 3D Ocean Scene**
+**Real-Time Facial AI • GPT-4o-Mini • Three.js Simulation**
 
----
-
-## 🚀 **Live Demo**
-
-Frontend (Netlify):
-🔗 **[https://speakwithmarina.netlify.app/)**
-
-
----
-
-## ✨ **Features**
-
-### 🎭 Emotion Detection
-
-Marina uses **Face API** to detect your facial expression in real-time via webcam.
-Supported emotions:
-
-* 😊 Happy
-* 😔 Sad
-* 😡 Angry
-* 😌 Calm
-
-Each emotion dynamically changes the **ocean, skybox, and lighting**.
+<div align="center">
+  <img src="https://img.shields.io/badge/Real--Time-Emotion%20Detection-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/3D%20Graphics-Three.js-success?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/AI%20Assistant-GPT--4o--Mini-purple?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Voice%20Output-ElevenLabs-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Status-Production%20Ready-green?style=for-the-badge" />
+</div>
 
 ---
 
-### 🌅 Dynamic 3D Ocean Environment
+## 📚 Table of Contents
 
-Powered by **Three.js**, the environment simulates:
+* [Demo](#demo)
+* [Who Is It For?](#who-is-it-for)
+* [Core Features](#core-features)
+* [Live Emotion-to-Environment Mapping](#live-emotion-to-environment-mapping)
+* [Architecture Overview](#architecture-overview)
+* [Processing Pipeline](#processing-pipeline)
+* [Tech Stack](#tech-stack)
+* [Installation](#installation)
+* [Running the Project](#running-the-project)
+* [Deployment](#deployment)
+* [Use Cases](#use-cases)
+* [Screenshots](#screenshots)
+* [Why Marina?](#why-marina)
 
-* Animated realistic waves
-* Emotion-based skybox textures
-* Light transitions
-* Smooth camera movement
-
----
-
-### 🎤 Voice Interaction
-
-Marina listens to your voice and responds in a calm, friendly manner.
-
-Two modes supported:
-
-* **Text → Voice via ElevenLabs** (production)
-* **Browser Speech Synthesis** fallback (local / no API)
 
 ---
 
-### 💬 AI Assistant
+## 🚀 Demo
 
-Connected with **OpenAI GPT-4o-mini**, Marina can:
+Live Demo:
+🔗 **[https://speakwithmarina.netlify.app/app.html](https://speakwithmarina.netlify.app/app.html)** 
 
-* Answer questions
-* Provide emotional support
-* Hold short calming conversations
+> **Dive into marina now**:
+> Enable webcam → Speak to Marina → Watch the ocean respond to your emotions.
 
 ---
 
-## 🧠 **Tech Stack**
+## 🧑‍🤝‍🧑 Who Is It For?
 
-### **Frontend**
+* **Students exploring AI + 3D graphics**
+* **Mental wellness creators** building calming digital therapists
+* **Game & AR developers** experimenting with emotion-driven environments
+* **Anyone who wants to merge AI, emotions, sound, and visuals**
+
+---
+
+## 🌟 Core Features
+
+| Feature                        | Description                                |
+| ------------------------------ | ------------------------------------------ |
+| **Emotion Detection**          | Real-time face tracking using Face-API.js  |
+| **3D Ocean Simulation**        | Dynamic waves + skyboxes using Three.js    |
+| **Emotion-Driven Environment** | Sky, water, lighting adapt to how you feel |
+| **AI Conversations**           | Powered by GPT-4o-mini                     |
+| **Calming Voice Output**       | ElevenLabs TTS or Web Speech fallback      |
+| **Two-Page Experience**        | Landing page → immersive ocean world       |
+
+---
+
+## 🎭 Live Emotion-to-Environment Mapping
+
+| Emotion         | Ocean Color | Skybox       | Lighting       | Tone of Marina      |
+| --------------- | ----------- | ------------ | -------------- | ------------------- |
+| 😊 Happy        | Bright blue | Warm sunrise | Soft bloom     | Cheerful, uplifting |
+| 😔 Sad          | Dark navy   | Cloudy       | Low contrast   | Gentle, comforting  |
+| 😡 Angry        | Deep red    | Stormy       | High contrast  | Calm, grounding     |
+| 😌 Neutral/Calm | Turquoise   | Clear sky    | Balanced light | Peaceful + warm     |
+
+> **Your face becomes the controller of the world.**
+
+---
+
+## 🏗 Architecture Overview
+
+```
+Frontend (React + Three.js)
+      |
+      ├── Emotion Detector (Face-API)
+      ├── Voice Input (Web Speech / Button)
+      ├── Ocean Renderer (Three.js)
+      └── API Client → /api/chat + /api/voice
+                               |
+                               v
+Backend (Node.js + Express)
+      ├── OpenAI GPT-4o-mini (Chat)
+      └── ElevenLabs (TTS)
+```
+
+Everything runs in real-time with smooth interaction loops.
+
+---
+
+## 🔧 Processing Pipeline
+
+### 🎭 Emotion Flow
+
+1. Webcam captures face
+2. Face-API detects expression
+3. Emotion value mapped to environment
+4. Three.js updates sky + ocean shaders
+
+### 💬 Chat Flow
+
+1. User speaks or types
+2. Frontend sends text → `/api/chat`
+3. GPT-4o-mini generates response
+4. Response returned to frontend
+
+### 🔊 Voice Output
+
+1. Frontend sends Marina’s reply → `/api/voice`
+2. ElevenLabs returns MP3
+3. Browser plays voice
+
+---
+
+## 🧪 Tech Stack
+
+### Frontend
 
 * React + Vite
-* Three.js
-* Face-API.js
-* Web Speech API (fallback)
-* Netlify (hosting)
+* Three.js (Ocean + Skybox)
+* Face-API.js (Emotion detection)
+* Web Speech API (fallback voice)
+* Netlify hosting
 
-### **Backend**
+### Backend
 
 * Node.js + Express
-* OpenAI Chat API
-* ElevenLabs Text-to-Speech API
-* Railway (hosting)
+* OpenAI API (GPT-4o-mini)
+* ElevenLabs TTS
+* Railway hosting
 
 ---
 
-## ⚙️ **Project Structure**
-
-```
-marinaocean/
-│
-├── public/
-│   ├── models/ (face detection models)
-│   ├── assets/ (skyboxes, textures)
-│   └── waves.mp3
-│
-├── src/
-│   ├── components/
-│   ├── ai/
-│   │   ├── chat.js     (OpenAI request)
-│   │   └── voice.js    (TTS request)
-│   ├── emotion/
-│   │   └── emotionDetector.js
-│   ├── App.jsx
-│   └── main.jsx
-│
-├── server/
-│   └── server.js
-│
-├── index.html          (landing page)
-├── app.html            (main 3D app)
-└── vite.config.js
-```
-
----
-
-## 📝 **Backend Endpoints**
-
-### `POST /api/chat`
-
-Input:
-
-```json
-{
-  "userText": "Hello Marina"
-}
-```
-
-Output:
-
-```json
-{
-  "reply": "Hello, gentle soul. How may I assist you today?"
-}
-```
-
----
-
-### `POST /api/voice`
-
-Input:
-
-```json
-{
-  "text": "Hello from Marina"
-}
-```
-
-Output:
-`audio/mpeg` buffer (MP3 file)
-
----
-
-## 🛠️ **How to Run Locally**
-
-### 1️⃣ Clone the repo
+## ⚙ Installation
 
 ```bash
 git clone https://github.com/YOUR-USERNAME/azure-marina.git
 cd azure-marina
-```
-
-### 2️⃣ Install frontend packages
-
-```bash
 npm install
-```
-
-### 3️⃣ Install backend packages
-
-```bash
 cd server
 npm install
 ```
 
-### 4️⃣ Add your `.env` files
+### Environment Variables
 
-Frontend (`/.env`)
+Frontend `.env`
 
 ```
 VITE_OPENAI_KEY=
 VITE_ELEVEN_KEY=
 ```
 
-Backend (`/server/.env`)
+Backend `server/.env`
 
 ```
 OPENAI_API_KEY=
 ELEVEN_API_KEY=
 ```
 
-### 5️⃣ Run backend
+---
+
+## ▶ Running the Project
+
+Start backend:
 
 ```bash
 cd server
 node server.js
 ```
 
-### 6️⃣ Run frontend
+Start frontend:
 
 ```bash
 npm run dev
 ```
 
----
+Open:
 
-## 🌐 **Deployment**
-
-### Frontend
-
-Hosted on **Netlify**:
-
-* `npm run build`
-* Upload **dist/** folder to Netlify Drop
-
-### Backend
-
-Deployed on **Railway**:
-
-* Connect GitHub repo
-* Add environment variables
-* Deploy service
-* Use generated URL in frontend (`/api/chat`, `/api/voice`)
+```
+http://localhost:5173
+```
 
 ---
 
-## 🏆 **Use-Case**
+## 🌐 Deployment
 
-Marina is designed for:
+### Frontend — Netlify
 
-* Mental wellness applications
-* Calming digital experiences
-* Interactive installations
-* Immersive art projects
-* Human–AI emotional interaction research
+```bash
+npm run build
+```
 
----
+Upload `dist/` to Netlify Drop.
 
-## 📸 **Screenshots**
+### Backend — Railway
 
-**Landing Page**
-🌊 Minimal, modern introduction screen
-
-**Emotion Detection**
-📷 Real-time webcam bounding box + emotion label
-
-**3D Ocean Scene**
-🌅 Dynamic lighting + ocean shaders + skyboxes
-
-**Chat + Voice**
-🎤 Smooth voice input → AI response → voice output
+* Connect repo
+* Set environment variables
+* Deploy
+* Use the Railway URL in frontend `/api/chat` + `/api/voice`
 
 ---
 
-## 🙏 **Acknowledgements**
+## 🎥 Use Cases
 
-* OpenAI for GPT-4o-mini
-* ElevenLabs for voice synthesis
-* Face API for emotion detection
-* Three.js for the 3D environment
-* Netlify + Railway for free hosting
-
----
-
-## ⭐ **If you like this project, don't forget to star the repo!**
-
-Your support motivates further development.
+* Real-time emotional wellness tools
+* Interactive AI art installations
+* AI-powered meditation experiences
+* Ambient digital storytelling
+* Emotion-aware games / NPCs
+* Ed-Tech: teaching AI + graphics together
+* Hackathon demo projects
 
 ---
 
+## 🖼 Screenshots
 
+### Landing Page
+
+
+
+<img width="1920" height="1140" alt="Screenshot 2025-12-02 121307" src="https://github.com/user-attachments/assets/22883b75-10b4-4197-9e36-3bf957881067" />
+
+
+
+*A calm portal to the ocean world.*
+
+### Real-Time Emotion Detection
+
+
+### Calm
+
+
+<img width="1920" height="1140" alt="Screenshot 2025-12-02 121618" src="https://github.com/user-attachments/assets/4ee7c4c8-5182-44e5-a0f5-42ac5b79796e" />
+
+
+
+###  Happy
+
+
+
+<img width="1920" height="1140" alt="Screenshot 2025-12-02 121437" src="https://github.com/user-attachments/assets/42c4d86e-88d9-48bd-a59c-e168b6598a2e" />
+
+
+
+### Sad
+
+
+<img width="1920" height="1140" alt="Screenshot 2025-12-02 121936" src="https://github.com/user-attachments/assets/fb45ef1e-3743-4eef-b310-72bdaec210bf" />
+
+
+
+## Angry
+
+
+<img width="1920" height="1140" alt="Screenshot 2025-12-02 122325" src="https://github.com/user-attachments/assets/58ac0ee1-b19b-4a1f-b1fe-6eb0d9450c44" />
+
+
+
+
+Dynamic waves + sky reflections.
+
+### AI + Voice Interaction
+
+
+
+<img width="1920" height="1140" alt="Screenshot 2025-12-02 122633" src="https://github.com/user-attachments/assets/992e221d-cac1-4403-97d4-1cde6c42f343" />
+
+
+
+
+GPT-powered responses → voice output.
+
+---
+
+## 💙 Why Marina?
+
+> “We didn’t just simulate an ocean —
+> we simulated how the ocean reacts to **you**.”
+
+Marina is built to show what happens when you combine:
+
+* Emotion AI
+* 3D graphics
+* Voice synthesis
+* Real-time interaction
+* Human feelings
+
+
+
+
+
+
+
+  
+
+<p align="center" style="font-size:20px; color:#2EA3F2;">
+  <i><b>“When I was young, the ocean felt alive to me. With Marina, I’ve finally built the ocean that speaks back.”</b></i>
+</p>
+
+
+---
