@@ -39,7 +39,8 @@ Live Demo:
 🔗 **[https://speakwithmarina.netlify.app/app.html](https://speakwithmarina.netlify.app/app.html)** 
 
 > **Dive into marina now**:
-> Enable webcam → Speak to Marina → Watch the ocean respond to your emotions.
+> Enable webcam → Hold the mic and Speak to Marina → Watch the ocean respond to your emotions.
+
 
 ---
 
